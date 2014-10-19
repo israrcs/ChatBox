@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="chatModule">
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Chat App</title>
+    <script src="js/angular.min.js"></script>
+    <link rel="stylesheet" href="style/bootstrap.min.css"/>
+    <link rel="stylesheet" href="style/bootstrap-theme.min.css"/>
+    <script src="js/main.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6" ng-controller="userCtrl">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Chat : User</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="message in chat">
+                            <div class="row">
+                                <div class="col-md-3">{{message.sender}} :</div>
+                                <div class="col-md-9">{{message.text}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <form  ng-submit="sendMessage()">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="text" required/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Send</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6" ng-controller="computerCtrl">
+            <div class="panel panel-primary">
+                <div class="panel-heading">Chat : Computer</div>
+                <div class="panel-body">
+                    <ul class="list-group">
+                        <li class="list-group-item" ng-repeat="message in chat">
+                            <div class="row">
+                                <div class="col-md-3">{{message.sender}} :</div>
+                                <div class="col-md-9">{{message.text}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="panel-footer">
+                    <form  ng-submit="sendMessage()">
+                        <div class="input-group">
+                            <input type="text" class="form-control" ng-model="text" required/>
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Send</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
